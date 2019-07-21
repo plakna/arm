@@ -508,6 +508,20 @@
                         }
                     },
                     {
+                        "name": "Sql",
+                        "properties": {
+                            "description": "Access to Sql",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "1433",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 280,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
                         "name": "Client",
                         "properties": {
                             "description": "Access for Windows Client",
