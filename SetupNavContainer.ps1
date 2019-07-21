@@ -89,7 +89,7 @@ if ($AddTraefik -eq "Yes") {
     $params += @{ "useTraefik" = $true }
 }
 else {
-    $params.Add("publishPorts", @(8080,443,7046,7047,7048,7049))
+    $params.Add("publishPorts", @(8080,443,7046,7047,7048,7049,1433))
 }
 
 $additionalParameters = @("--env RemovePasswordKeyFile=N",
