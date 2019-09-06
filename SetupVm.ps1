@@ -266,9 +266,9 @@ if ($RunWindowsUpdate -eq "Yes") {
     Log "Windows updates installed"
 }
 
-$startupAction = New-ScheduledTaskAction -Execute "powershell.exe Start-BCContainer navserver"
-$startupTrigger = New-ScheduledTaskTrigger -AtStartup
-Register-ScheduledTask -Trigger $startupTrigger -Action $startupAction -TaskName "Start BC Container"
+$startupAction = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "Start-BCContainer navserver"
+$startupTrigger = New-ScheduledTaskTrigger -AtStartup -RandomDelay (New-TimeSpan -Minutes 1) 
+Register-ScheduledTask -Trigger $startupTrigger -Action $startupAction -TaskName "Start BC Container" -AsJob -User "SYSTEM" -Force
 
 shutdown -r -t 30
 
